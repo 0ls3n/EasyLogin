@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>60</y>
+      <w>610</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Operation
+--
+operation: Register(username : string, password : string, email : string, displayname : string)
+--
+cross reference: Register new person
+
+--
+precondition:
+- The person must not exist in the system
+
+--
+postcondition:
+A new person was created (instance creation)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>270</y>
+      <w>610</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Operation
+--
+operation: CreatePortfolio(title : string)
+--
+cross reference: Create new portfolio
+
+--
+precondition:
+- The portfolio title must be unique
+
+--
+postcondition:
+A new portfolio was created (instance creation), and added to the persons list over portfolios (association formed)
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>480</y>
+      <w>610</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Operation
+--
+operation: CreateSubject(title : string, description : string, portfolio : Portfolio)
+--
+cross reference: Create new subject
+
+--
+precondition:
+- A portfolio must exist at a person
+
+--
+postcondition:
+A new subject was created (instance creation), and added to a specific portfolio (association formed)
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
