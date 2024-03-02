@@ -67,7 +67,11 @@ Oprettet d. 21-01-2022</panel_attributes>
       <w>120</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>Project #1</panel_attributes>
+    <panel_attributes>Project #1
+
+This is a project
+to create a 
+calculator</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
