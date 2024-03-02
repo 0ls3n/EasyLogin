@@ -10,7 +10,8 @@ namespace MyPortfolio.Models
     {
         public string Title { get; set; }
         public Person Person { get; set; }
-        public List<Subject> SubjectList { get; set; }
+
+        private List<Subject> SubjectList;
         
         public Portfolio(string title, Person person)
         {
@@ -18,5 +19,17 @@ namespace MyPortfolio.Models
             this.Person = person;
             SubjectList = new List<Subject>();
         }
+
+        public void AddSubject(Subject subject)
+        {
+            SubjectList.Add(subject);
+        }
+
+        public void RemoveSubject(Subject subject)
+        {
+            SubjectList.Remove(subject);
+        }
+
+        public List<Subject> GetFullList() => SubjectList; 
     }
 }
