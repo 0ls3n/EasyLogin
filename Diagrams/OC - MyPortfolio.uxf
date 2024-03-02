@@ -34,7 +34,7 @@ A new person was created (instance creation)</panel_attributes>
     </coordinates>
     <panel_attributes>Operation
 --
-operation: CreatePortfolio(title : string)
+operation: CreatePortfolio(title : string, person : Person)
 --
 cross reference: Create new portfolio
 
