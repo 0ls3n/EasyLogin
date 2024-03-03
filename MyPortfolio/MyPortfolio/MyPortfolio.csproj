@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Views\Images\myportfolio-favicon-color.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Views\Images\myportfolio-favicon-color.ico" />
     <None Remove="Views\Images\MyPortfolio-icon.png" />
   </ItemGroup>
 
@@ -29,9 +31,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Views\Images\MyPortfolio-icon.png">
+    <Resource Include="Views\Images\myportfolio-favicon-color.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Views\Images\MyPortfolio-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
