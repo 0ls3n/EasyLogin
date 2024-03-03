@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyPortfolio.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MyPortfolio.Components;
 
 namespace MyPortfolio.Views
 {
@@ -22,6 +24,9 @@ namespace MyPortfolio.Views
         public RegisterView()
         {
             InitializeComponent();
+
+            RegisterViewModel rvm = new RegisterViewModel();
+            this.DataContext = rvm;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -44,7 +49,9 @@ namespace MyPortfolio.Views
 
         private void btn_Register_Click(object sender, RoutedEventArgs e)
         {
-
+            LoginView loginView = new LoginView();
+            loginView.Show();
+            this.Close();
         }
 
         private void btn_Already_Have_Click(object sender, RoutedEventArgs e)

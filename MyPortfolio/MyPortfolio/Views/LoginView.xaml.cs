@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyPortfolio.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,9 @@ namespace MyPortfolio.Views
         public LoginView()
         {
             InitializeComponent();
+
+            LoginViewModel lvm = new LoginViewModel();
+            this.DataContext = lvm;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

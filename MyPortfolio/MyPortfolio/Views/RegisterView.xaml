@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyPortfolio.Views"
+        xmlns:local="clr-namespace:MyPortfolio.Views" xmlns:components="clr-namespace:MyPortfolio.Components"
         mc:Ignorable="d"
         Title="RegisterView" Height="550" Width="800"
         WindowStyle="None"
@@ -129,17 +129,18 @@
                        Margin="0, 20, 0, 0"/>
 
                 <TextBox x:Name="txtUser"
-                     FontSize="13"
-                     FontWeight="Medium"
-                     Background="Transparent"
-                     FontFamily="Montserrat"
-                     Foreground="White"
-                     CaretBrush="LightGray"
-                     BorderBrush="DarkGray"
-                     BorderThickness="0, 0, 0 2"
-                     Height="28"
-                     VerticalContentAlignment="Center"
-                     Margin="0, 5, 0, 0">
+                         FontSize="13"
+                         FontWeight="Medium"
+                         Background="Transparent"
+                         FontFamily="Montserrat"
+                         Foreground="White"
+                         CaretBrush="LightGray"
+                         BorderBrush="DarkGray"
+                         BorderThickness="0, 0, 0 2"
+                         Height="28"
+                         VerticalContentAlignment="Center"
+                         Margin="0, 5, 0, 0"
+                         Text="{Binding Path=UsernameText}">
 
                 </TextBox>
 
@@ -150,20 +151,9 @@
                        FontFamily="Montserrat"
                        Margin="0, 35, 0, 0"/>
 
-                <PasswordBox x:Name="txtPass"
-                     FontSize="13"
-                     FontWeight="Medium"
-                     FontFamily="Montserrat"
-                     Background="Transparent"
-                     Foreground="White"
-                     CaretBrush="LightGray"
-                     BorderBrush="DarkGray"
-                     BorderThickness="0, 0, 0 2"
-                     Height="28"
-                     VerticalContentAlignment="Center"
-                     Margin="0, 5, 0, 0">
 
-                </PasswordBox>
+                <components:BindablePasswordBox x:Name="txtPass"
+                                                Password="{Binding Path=PasswordText, Mode=TwoWay}"/>
 
                 <TextBlock Text="Email" 
                            Foreground="DarkGray"
@@ -183,7 +173,8 @@
                          BorderThickness="0, 0, 0 2"
                          Height="28"
                          VerticalContentAlignment="Center"
-                         Margin="0, 5, 0, 0">
+                         Margin="0, 5, 0, 0"
+                         Text="{Binding Path=EmailText}">
 
                 </TextBox>
 
@@ -205,21 +196,24 @@
                          BorderThickness="0, 0, 0 2"
                          Height="28"
                          VerticalContentAlignment="Center"
-                         Margin="0, 5, 0, 0">
+                         Margin="0, 5, 0, 0"
+                         Text="{Binding Path=DisplayNameText}">
 
                 </TextBox>
 
 
                 <Button x:Name="btn_Register"
-                    BorderThickness="0"
-                    Content="REGISTER"
-                    Foreground="White"
-                    FontSize="12"
-                    FontFamily="Montserrat"
-                    Cursor="Hand"
-                    Grid.Column="2"
-                    Margin="0 25 0 0"
-                    Click="btn_Register_Click">
+                        BorderThickness="0"
+                        Content="REGISTER"
+                        Foreground="White"
+                        FontSize="12"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="2"
+                        Margin="0 25 0 0"
+                        Command="{Binding Path=RegisterButtonCommand}"
+                        CommandParameter="{Binding}"
+                        Click="btn_Register_Click">
 
                     <Button.Style>
                         <Style TargetType="Button">
