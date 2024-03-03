@@ -28,6 +28,15 @@ namespace MyPortfolio.ViewModels
 
         public void RegisterNewPerson()
         {
+            foreach (Person person in personRepository.GetPersonList())
+            {
+                if (person.Username == UsernameText)
+                {
+                    MessageBox.Show("User does already exist!");
+                    return;
+                }
+            }
+
             Person personToCreate = new Person(UsernameText, PasswordText, EmailText, DisplayNameText);
 
             personRepository.CreateNewPerson(personToCreate);

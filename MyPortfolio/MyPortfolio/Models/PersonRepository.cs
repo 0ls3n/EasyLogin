@@ -22,6 +22,8 @@ namespace MyPortfolio.Models
 
             IConfigurationRoot config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             ConnectionString = config.GetConnectionString("MyDBConnection");
+
+            InitializeRepository();
         }
 
         public void CreateNewPerson(Person person)
@@ -40,5 +42,33 @@ namespace MyPortfolio.Models
                 personList.Add(person);
             }
         }
+
+        public void InitializeRepository()
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT PersonId, Username, Password, Email, DisplayName FROM PERSON", con);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int id = Convert.ToInt32(reader["PersonId"].ToString());
+                        string username = reader["Username"].ToString();
+                        string password = reader["Password"].ToString();
+                        string email = reader["Email"].ToString();
+                        string displayName = reader["DisplayName"].ToString();
+
+                        Person personToAdd = new Person(username, password, email, displayName);
+                        personToAdd.Id = id;
+
+                        personList.Add(personToAdd);
+                    }
+                }
+            }
+        }
+
+        public List<Person> GetPersonList() => personList;
     }
 }
