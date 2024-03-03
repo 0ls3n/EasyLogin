@@ -12,13 +12,13 @@ namespace MyPortfolio.Models
 {
     public class PersonRepository
     {
-        private List<Person> peronList;
+        private List<Person> personList;
 
         string? ConnectionString;
 
         public PersonRepository()
         {
-            peronList = new List<Person>();
+            personList = new List<Person>();
 
             IConfigurationRoot config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             ConnectionString = config.GetConnectionString("MyDBConnection");
@@ -26,11 +26,18 @@ namespace MyPortfolio.Models
 
         public void CreateNewPerson(Person person)
         {
-            peronList.Add(person);
-
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 con.Open();
+
+                SqlCommand cmd = new SqlCommand("INSERT INTO PERSON VALUES (@Username, @Password, @Email, @DisplayName)", con);
+                cmd.Parameters.Add("@Username", SqlDbType.NVarChar).Value = person.Username;
+                cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = person.Password;
+                cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = person.Email;
+                cmd.Parameters.Add("@DisplayName", SqlDbType.NVarChar).Value = person.DisplayName;
+                person.Id = Convert.ToInt32(cmd.ExecuteScalar());
+
+                personList.Add(person);
             }
         }
     }

@@ -13,6 +13,8 @@ namespace MyPortfolio.Models
         public string Email { get; set; }
         public string DisplayName { get; set; }
 
+        public int Id { get; set; }
+
         public Person(string username, string password, string email, string displayName)
         {
             this.Username = username;
