@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace MyPortfolio.Views
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for RegisterView.xaml
     /// </summary>
-    public partial class LoginView : Window
+    public partial class RegisterView : Window
     {
-        public LoginView()
+        public RegisterView()
         {
             InitializeComponent();
         }
@@ -28,14 +28,8 @@ namespace MyPortfolio.Views
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                WindowState = WindowState.Normal;
                 DragMove();
             }
-        }
-
-        private void btn_Minimize_Click(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
@@ -43,20 +37,20 @@ namespace MyPortfolio.Views
             Application.Current.Shutdown();
         }
 
-        private void btn_Login_Click(object sender, RoutedEventArgs e)
+        private void btn_Minimize_Click(object sender, RoutedEventArgs e)
         {
-            
-        }
-
-        private void btn_Forgot_Passsword_Click(object sender, RoutedEventArgs e)
-        {
-
+            WindowState = WindowState.Minimized;
         }
 
         private void btn_Register_Click(object sender, RoutedEventArgs e)
         {
-            RegisterView registerView = new RegisterView();
-            registerView.Show();
+
+        }
+
+        private void btn_Already_Have_Click(object sender, RoutedEventArgs e)
+        {
+            LoginView loginView = new LoginView();
+            loginView.Show();
             this.Close();
         }
     }
