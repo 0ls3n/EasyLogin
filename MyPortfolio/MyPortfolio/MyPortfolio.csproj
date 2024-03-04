@@ -18,7 +18,9 @@
 
   <ItemGroup>
     <None Remove="Views\Images\myportfolio-favicon-color.ico" />
+    <None Remove="Views\Images\MyPortfolio-Icon-White.png" />
     <None Remove="Views\Images\MyPortfolio-icon.png" />
+    <None Remove="Views\Images\user-logo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,7 +36,13 @@
     <Resource Include="Views\Images\myportfolio-favicon-color.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Views\Images\MyPortfolio-Icon-White.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Views\Images\MyPortfolio-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\user-logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

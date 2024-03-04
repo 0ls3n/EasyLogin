@@ -133,9 +133,9 @@
                 <TextBox x:Name="txtUser"
                          FontSize="13"
                          FontWeight="Medium"
-                         Background="Transparent"
                          FontFamily="Montserrat"
                          Foreground="White"
+                         Background="Transparent"
                          CaretBrush="LightGray"
                          BorderBrush="DarkGray"
                          BorderThickness="0, 0, 0 2"
@@ -154,7 +154,8 @@
                            Margin="0, 35, 0, 0"/>
 
                 <components:BindablePasswordBox x:Name="txtPass" 
-                                                Password="{Binding Path=PasswordText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                                Password="{Binding Path=PasswordText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                KeyDown="txtPass_KeyDown"/>
 
                 <Button x:Name="btn_Login"
                         BorderThickness="0"

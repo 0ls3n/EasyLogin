@@ -84,7 +84,6 @@ namespace MyPortfolio.Models
 
         public Person FindPerson(string username) => personList.Find(x => x.Username == username);
         public Person FindPerson(int id) => personList.Find(x => x.Id == id);
-
         public List<Person> GetPersonList() => personList;
     }
 }

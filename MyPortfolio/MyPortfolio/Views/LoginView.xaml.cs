@@ -71,5 +71,22 @@ namespace MyPortfolio.Views
             registerView.Show();
             this.Close();
         }
+
+        private void txtPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                if (txtUser.Text != string.Empty && txtPass.Password != string.Empty)
+                {
+                    if (lvm.Login())
+                    {
+                        MainWindow mainWindow = new MainWindow();
+                        lvm.TransferPersonToViewModel((MainViewModel)mainWindow.DataContext);
+                        mainWindow.Show();
+                        this.Close();
+                    }
+                }
+            }
+        }
     }
 }

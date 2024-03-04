@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyPortfolio.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000"
+        Title="MyPortfolio" Height="600" Width="1000"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResizeWithGrip"
@@ -15,7 +15,8 @@
         ShowInTaskbar="True"
         Icon="Images/myportfolio-favicon-color.ico">
 
-    <Border CornerRadius="15" BorderThickness="2">
+    <Border CornerRadius="15" BorderThickness="2" Background="#1B263B">
+
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Color="#415A77" Offset="0"/>
@@ -24,12 +25,6 @@
             </LinearGradientBrush>
         </Border.BorderBrush>
 
-        <Border.Background>
-            <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                <GradientStop Color="#0D1B2A" Offset="0"/>
-                <GradientStop Color="#1B263B" Offset="0.75"/>
-            </LinearGradientBrush>
-        </Border.Background>
 
         <Grid>
             <Grid.RowDefinitions>
@@ -37,7 +32,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Grid>
+            <Grid Margin="250 0 0 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="25"/>
@@ -45,14 +40,6 @@
                     <ColumnDefinition Width="25"/>
                     <ColumnDefinition Width="5"/>
                 </Grid.ColumnDefinitions>
-
-                <TextBlock Text="{Binding Path=UsernameText}" 
-                        Foreground="DarkGray"
-                        FontSize="10"
-                        FontFamily="Montserrat"
-                        Grid.Column="0"
-                        VerticalAlignment="Center"
-                        Margin="10, 0, 0, 0"/>
 
                 <Button x:Name="btn_Minimize"
                      BorderThickness="0"
@@ -149,14 +136,24 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <TextBlock Text="Welcome To MyPortfolio"
-                           Foreground="White"
-                           FontFamily="Montserrat"
-                           TextAlignment="Center"
-                           Margin="0 20 0 0"
-                           FontSize="40"
-                           Height="40"
-                           VerticalAlignment="Top"/>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Margin="0 -30 0 0" CornerRadius="15 0 0 15" Background="#0D1B2A">
+                    <StackPanel Orientation="Vertical" Grid.Column="0">
+                        <Image Source="/Views/Images/MyPortfolio-Icon-White.png" Width="150" Height="75" HorizontalAlignment="Center"/>
+
+                        
+                    </StackPanel>
+                </Border>
+
+
+
+
+
             </Grid>
 
         </Grid>
