@@ -213,9 +213,9 @@
                         Cursor="Hand"
                         Grid.Column="2"
                         Margin="0 25 0 0"
-                        Command="{Binding Path=RegisterButtonCommand}"
-                        CommandParameter="{Binding}"
-                        Click="btn_Register_Click">
+                        Click="btn_Register_Click"
+                        Command="{Binding RegisterButtonCommand}"
+                        CommandParameter="{Binding}">
 
                     <Button.Style>
                         <Style TargetType="Button">

@@ -13,7 +13,7 @@ namespace MyPortfolio.ViewModels
         private Person activePerson;
 
         string usernameText;
-        public string UsernameText { get => usernameText; set { usernameText = activePerson.Username; } }
+        public string UsernameText { get => "Logged in as: " + usernameText; set { usernameText = activePerson.Username; } }
 
         public MainViewModel()
         {

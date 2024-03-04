@@ -21,11 +21,13 @@ namespace MyPortfolio.Views
     /// </summary>
     public partial class RegisterView : Window
     {
+
+        RegisterViewModel rvm;
         public RegisterView()
         {
             InitializeComponent();
 
-            RegisterViewModel rvm = new RegisterViewModel();
+            rvm = new RegisterViewModel();
             this.DataContext = rvm;
         }
 
@@ -49,12 +51,28 @@ namespace MyPortfolio.Views
 
         private void btn_Register_Click(object sender, RoutedEventArgs e)
         {
-            LoginView loginView = new LoginView();
-            loginView.Show();
-            this.Close();
+            if (!txtMail.Text.Contains("@"))
+            {
+                MessageBox.Show("Invalid email adress!");
+            }
+            if (rvm.UserExists(txtUser.Text))
+            {
+                MessageBox.Show("User already exists!");
+            }
+
+            if (txtMail.Text.Contains("@") && !rvm.UserExists(txtUser.Text))
+            {
+                rvm.RegisterButtonCommand.Execute(this.DataContext);
+                GoBackToLogin();
+            }
         }
 
         private void btn_Already_Have_Click(object sender, RoutedEventArgs e)
+        {
+            GoBackToLogin();
+        }
+
+        private void GoBackToLogin()
         {
             LoginView loginView = new LoginView();
             loginView.Show();

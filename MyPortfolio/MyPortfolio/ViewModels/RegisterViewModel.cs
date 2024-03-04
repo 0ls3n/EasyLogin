@@ -76,9 +76,14 @@ namespace MyPortfolio.ViewModels
             {
                 if (person.Username == UsernameText)
                 {
-                    MessageBox.Show("User does already exist!");
+                    //MessageBox.Show("User does already exist!");
                     return;
                 }
+            }
+
+            if (!EmailText.Contains("@"))
+            {
+                return;
             }
 
             Person personToCreate = new Person(UsernameText, PasswordText, EmailText, DisplayNameText);
@@ -87,6 +92,23 @@ namespace MyPortfolio.ViewModels
 
             MessageBox.Show("Succesfully created a new person!!");
         }
+
+        public bool UserExists(string username)
+        {
+            bool exist = false;
+
+            foreach (Person person in personRepository.GetPersonList())
+            {
+                if (person.Username == username)
+                {
+                    exist = true;
+                    break;
+                } 
+            }
+
+            return exist;
+        }
+        
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {

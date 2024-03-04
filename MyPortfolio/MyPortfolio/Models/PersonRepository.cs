@@ -42,7 +42,6 @@ namespace MyPortfolio.Models
                 personList.Add(person);
             }
         }
-
         public void InitializeRepository()
         {
             using (SqlConnection con = new SqlConnection(ConnectionString))
