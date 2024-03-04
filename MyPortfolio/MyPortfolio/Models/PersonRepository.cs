@@ -69,6 +69,23 @@ namespace MyPortfolio.Models
             }
         }
 
+        public void DeletePerson(Person person)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("DELETE FROM PERSON WHERE PersonId = @Id", con);
+                cmd.Parameters.Add("@Id", SqlDbType.Int).Value = person.Id;
+                int rows = cmd.ExecuteNonQuery();
+
+                personList.Remove(person);
+            }
+        }
+
+        public Person FindPerson(string username) => personList.Find(x => x.Username == username);
+        public Person FindPerson(int id) => personList.Find(x => x.Id == id);
+
         public List<Person> GetPersonList() => personList;
     }
 }

@@ -20,11 +20,13 @@ namespace MyPortfolio.Views
     /// </summary>
     public partial class LoginView : Window
     {
+
+        LoginViewModel lvm;
         public LoginView()
         {
             InitializeComponent();
 
-            LoginViewModel lvm = new LoginViewModel();
+            lvm = new LoginViewModel();
             this.DataContext = lvm;
         }
 
@@ -49,7 +51,13 @@ namespace MyPortfolio.Views
 
         private void btn_Login_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (lvm.Login())
+            {
+                MainWindow mainWindow = new MainWindow();
+                lvm.TransferPersonToViewModel((MainViewModel)mainWindow.DataContext);
+                mainWindow.Show();
+                this.Close();
+            }
         }
 
         private void btn_Forgot_Passsword_Click(object sender, RoutedEventArgs e)

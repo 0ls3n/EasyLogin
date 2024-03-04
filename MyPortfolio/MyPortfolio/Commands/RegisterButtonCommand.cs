@@ -11,11 +11,24 @@ namespace MyPortfolio.Commands
 {
     internal class RegisterButtonCommand : ICommand
     {
-        public event EventHandler? CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
 
         public bool CanExecute(object? parameter)
         {
-            return true;
+            bool isActive = false;
+            if (parameter is RegisterViewModel rvm)
+            {
+                isActive = rvm.UsernameText != string.Empty &&
+                           rvm.PasswordText != string.Empty &&
+                           rvm.EmailText != string.Empty &&
+                           rvm.DisplayNameText != string.Empty;
+            }
+
+            return isActive;
         }
 
         public void Execute(object? parameter)

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -10,14 +12,56 @@ using MyPortfolio.Models;
 
 namespace MyPortfolio.ViewModels
 {
-    internal class RegisterViewModel
+    internal class RegisterViewModel : INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         private PersonRepository personRepository;
 
-        public string UsernameText { get; set; }
-        public string PasswordText { get; set; }
-        public string EmailText { get; set; }
-        public string DisplayNameText { get; set; }
+        string username = string.Empty;
+        public string UsernameText 
+        {
+            get => username; 
+            set
+            {
+                username = value;
+                OnPropertyChanged("UsernameText");
+            } 
+        }
+        
+        string password = string.Empty;
+        public string PasswordText 
+        {
+            get => password; 
+            set
+            {
+                password = value;
+                OnPropertyChanged("PasswordText");
+            }
+        }
+
+        string email = string.Empty;
+        public string EmailText 
+        {
+            get => email; 
+            set
+            {
+                email = value;
+                OnPropertyChanged("EmailText");
+            }
+        }
+
+        string displayName = string.Empty;
+        public string DisplayNameText 
+        {
+            get => displayName; 
+            set
+            {
+                displayName = value;
+                OnPropertyChanged("DisplayNameText");
+            } 
+        }
 
         public RegisterViewModel()
         {
@@ -42,6 +86,11 @@ namespace MyPortfolio.ViewModels
             personRepository.CreateNewPerson(personToCreate);
 
             MessageBox.Show("Succesfully created a new person!!");
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
 
