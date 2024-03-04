@@ -65,7 +65,7 @@ namespace MyPortfolio.ViewModels
             }
             else
             {
-                MessageBox.Show("Incorrect username or password");
+                //MessageBox.Show("Incorrect username or password");
                 return false;
             }
         }

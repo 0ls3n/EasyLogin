@@ -28,6 +28,8 @@ namespace MyPortfolio.Views
 
             lvm = new LoginViewModel();
             this.DataContext = lvm;
+
+            this.txtMessage.Text = string.Empty;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -57,6 +59,9 @@ namespace MyPortfolio.Views
                 lvm.TransferPersonToViewModel((MainViewModel)mainWindow.DataContext);
                 mainWindow.Show();
                 this.Close();
+            } else
+            {
+                this.txtMessage.Text = "Wrong password or username!";
             }
         }
 
@@ -84,6 +89,9 @@ namespace MyPortfolio.Views
                         lvm.TransferPersonToViewModel((MainViewModel)mainWindow.DataContext);
                         mainWindow.Show();
                         this.Close();
+                    } else
+                    {
+                        this.txtMessage.Text = "Wrong password or username!";
                     }
                 }
             }

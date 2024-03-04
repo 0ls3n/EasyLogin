@@ -20,6 +20,7 @@
     <None Remove="Views\Images\myportfolio-favicon-color.ico" />
     <None Remove="Views\Images\MyPortfolio-Icon-White.png" />
     <None Remove="Views\Images\MyPortfolio-icon.png" />
+    <None Remove="Views\Images\password-logo.png" />
     <None Remove="Views\Images\user-logo.png" />
   </ItemGroup>
 
@@ -40,6 +41,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Images\MyPortfolio-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\password-logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Images\user-logo.png">
