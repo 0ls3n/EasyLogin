@@ -123,59 +123,17 @@
 
                 <Image Source="/Views/Images/MyPortfolio-icon.png" Width="250" Height="150"/>
 
-                <TextBlock x:Name="txtMessage"
-                           Text="" 
-                           Foreground="Red"
-                           FontSize="12"
-                           FontWeight="Medium"
-                           FontFamily="Montserrat"
-                           Margin="0, 0, 0, 0"/>
 
-
-                <TextBlock Text="Username" 
-                           Foreground="DarkGray"
-                           FontSize="12"
-                           FontWeight="Medium"
-                           FontFamily="Montserrat"
-                           Margin="0, 10, 0, 0"/>
-
-                <TextBox x:Name="txtUser"
-                         FontSize="13"
-                         FontWeight="Medium"
-                         FontFamily="Montserrat"
-                         Foreground="White"
-                         Background="Transparent"
-                         CaretBrush="LightGray"
-                         BorderBrush="DarkGray"
-                         BorderThickness="0, 0, 0 2"
-                         Height="28"
-                         VerticalContentAlignment="Center"
-                         Margin="0, 5, 0, 0"
-                         KeyDown="txtPass_KeyDown"
-                         Text="{Binding Path=UsernameText, UpdateSourceTrigger=PropertyChanged}">
-
-                </TextBox>
-
-                <TextBlock Text="Password" 
-                           Foreground="DarkGray"
-                           FontSize="12"
-                           FontWeight="Medium"
-                           FontFamily="Montserrat"
-                           Margin="0, 35, 0, 0"/>
-
-                <components:BindablePasswordBox x:Name="txtPass" 
-                                                Password="{Binding Path=PasswordText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                                KeyDown="txtPass_KeyDown"/>
 
                 <Button x:Name="btn_Login"
                         BorderThickness="0"
-                        Content="LOG IN"
+                        Content="Log in with Microsoft"
                         Foreground="White"
                         FontSize="12"
                         FontFamily="Montserrat"
                         Cursor="Hand"
                         Grid.Column="2"
-                        Margin="0 35 0 0"
+                        Margin="0 250 0 0"
                         Click="btn_Login_Click"
                         Command="{Binding LoginCommand}"
                         CommandParameter="{Binding}">
@@ -193,72 +151,14 @@
 
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-                            <Border Width="150" Height="30" CornerRadius="15" Background="{TemplateBinding Background}">
+                            <Border Width="200" Height="30" CornerRadius="15" Background="{TemplateBinding Background}">
                                 <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
-                </Button>
 
-
-                <Button x:Name="btn_Forgot_Passsword"
-                        Background="Transparent"
-                        Foreground="LightGray"
-                        Margin="0 5 0 0"
-                        FontStyle="Italic"
-                        Width="125"
-                        BorderThickness="0"
-                        Cursor="Hand"
-                        FontFamily="Montserrat"
-                        Click="btn_Forgot_Passsword_Click">
-
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="FontWeight" Value="Normal"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="FontWeight" Value="Medium"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <TextBlock FontWeight="{TemplateBinding FontWeight}" Text="Forgot your password?" TextAlignment="Center"></TextBlock>
-                        </ControlTemplate>
-                    </Button.Template>
                     
-                </Button>
-
-                <Button x:Name="btn_Register"
-                        Background="Transparent"
-                        Foreground="LightGray"
-                        Margin="0 50 0 0"
-                        FontStyle="Italic"
-                        Width="130"
-                        BorderThickness="0"
-                        Cursor="Hand"
-                        FontFamily="Montserrat"
-                        Click="btn_Register_Click">
-
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="FontWeight" Value="Normal"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="FontWeight" Value="Medium"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <TextBlock FontWeight="{TemplateBinding FontWeight}" Text="Don't have an account?" TextAlignment="Center"></TextBlock>
-                        </ControlTemplate>
-                    </Button.Template>
-
+                    
                 </Button>
 
 

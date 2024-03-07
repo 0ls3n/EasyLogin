@@ -20,22 +20,20 @@ namespace MyPortfolio.Commands
 
         public bool CanExecute(object? parameter)
         {
-            bool isActive = false;
+            //bool isActive = false;
 
-            if (parameter is LoginViewModel lvm)
-            {
-                isActive = lvm.UsernameText != string.Empty && lvm.PasswordText != string.Empty;
-            }
+            //if (parameter is LoginViewModel lvm)
+            //{
+            //    isActive = lvm.UsernameText != string.Empty && lvm.PasswordText != string.Empty;
+            //}
 
-            return isActive;
+            //return isActive;
+            return true;
         }
 
         public void Execute(object? parameter)
         {
-            //if (parameter is LoginViewModel lvm)
-            //{
-            //    lvm.Login();
-            //}
+            
         }
     }
 }

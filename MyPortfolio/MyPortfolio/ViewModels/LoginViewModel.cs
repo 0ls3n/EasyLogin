@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows;
 using System.Windows.Input;
 using MyPortfolio.Models;
 using MyPortfolio.Commands;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Security.Policy;
+using Microsoft.Identity.Client;
+using System.Diagnostics;
+using System.Windows.Interop;
 
 namespace MyPortfolio.ViewModels
 {
     internal class LoginViewModel : INotifyPropertyChanged
     {
+        string graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
+
+        string[] scopes = new string[] { "user.read" };
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -54,19 +60,61 @@ namespace MyPortfolio.ViewModels
 
         public ICommand LoginCommand { get; set; } = new LoginButtonCommand();
 
-        public bool Login()
-        {
-            personToLogin = personRepository.FindPerson(UsernameText);
+        //public bool Login()
+        //{
+        //    personToLogin = personRepository.FindPerson(UsernameText);
 
-            if (personToLogin != null && personToLogin.Password == PasswordText)
+        //    if (personToLogin != null && personToLogin.Password == PasswordText)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
+        public async void Login(Window window)
+        {
+            AuthenticationResult authResult = null;
+            var app = App.PublicClientApp;
+
+            IAccount firstAccount = (await app.GetAccountsAsync()).FirstOrDefault();
+
+            if (firstAccount == null)
             {
-                //MessageBox.Show($"{personToFind.DisplayName} is logged in");
-                return true;
+                firstAccount = PublicClientApplication.OperatingSystemAccount; // Hvis den ikke kan finde bruger i cache, prøver den at finde den gennem operativ systemets bruger
             }
-            else
+
+            try
             {
-                //MessageBox.Show("Incorrect username or password");
-                return false;
+                authResult = await app.AcquireTokenSilent(scopes, firstAccount).ExecuteAsync(); // Prøver at logge ind gennem cache eller operativ systemets login
+            } 
+            catch (MsalUiRequiredException ex) // Hvis den ikke kunne logge ind gennem cache eller operativsystemet, kører den koden nedenfor
+            {
+                Debug.WriteLine(ex);
+
+                try
+                {
+                    authResult = await app.AcquireTokenInteractive(scopes)
+                        .WithAccount(firstAccount)
+                        .WithParentActivityOrWindow(new WindowInteropHelper(window).Handle)
+                        .WithPrompt(Prompt.SelectAccount)
+                        .ExecuteAsync();
+                } catch (MsalException msalex)
+                {
+                    Debug.WriteLine(msalex);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return;
+            }
+
+            if (authResult != null)
+            {
+                MessageBox.Show($"Logged in as: {authResult.Account.Username}");
             }
         }
 

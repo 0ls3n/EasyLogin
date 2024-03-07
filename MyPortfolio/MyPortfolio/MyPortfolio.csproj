@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Views\Images\microsoft-logo.png" />
     <None Remove="Views\Images\myportfolio-favicon-color.ico" />
     <None Remove="Views\Images\MyPortfolio-Icon-White.png" />
     <None Remove="Views\Images\MyPortfolio-icon.png" />
@@ -27,6 +28,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.59.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +39,9 @@
     <Resource Include="Views\Images\myportfolio-favicon-color.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Views\Images\microsoft-logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Views\Images\MyPortfolio-Icon-White.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

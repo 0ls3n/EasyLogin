@@ -28,8 +28,6 @@ namespace MyPortfolio.Views
 
             lvm = new LoginViewModel();
             this.DataContext = lvm;
-
-            this.txtMessage.Text = string.Empty;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -53,16 +51,18 @@ namespace MyPortfolio.Views
 
         private void btn_Login_Click(object sender, RoutedEventArgs e)
         {
-            if (lvm.Login())
-            {
-                MainWindow mainWindow = new MainWindow();
-                lvm.TransferPersonToViewModel((MainViewModel)mainWindow.DataContext);
-                mainWindow.Show();
-                this.Close();
-            } else
-            {
-                this.txtMessage.Text = "Wrong password or username!";
-            }
+            //if (lvm.Login())
+            //{
+            //    MainWindow mainWindow = new MainWindow();
+            //    lvm.TransferPersonToViewModel((MainViewModel)mainWindow.DataContext);
+            //    mainWindow.Show();
+            //    this.Close();
+            //} else
+            //{
+            //    this.txtMessage.Text = "Wrong password or username!";
+            //}
+
+            lvm.Login(this);
         }
 
         private void btn_Forgot_Passsword_Click(object sender, RoutedEventArgs e)
@@ -79,22 +79,22 @@ namespace MyPortfolio.Views
 
         private void txtPass_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Return)
-            {
-                if (txtUser.Text != string.Empty && txtPass.Password != string.Empty)
-                {
-                    if (lvm.Login())
-                    {
-                        MainWindow mainWindow = new MainWindow();
-                        lvm.TransferPersonToViewModel((MainViewModel)mainWindow.DataContext);
-                        mainWindow.Show();
-                        this.Close();
-                    } else
-                    {
-                        this.txtMessage.Text = "Wrong password or username!";
-                    }
-                }
-            }
+            //if (e.Key == Key.Return)
+            //{
+            //    if (txtUser.Text != string.Empty && txtPass.Password != string.Empty)
+            //    {
+            //        if (lvm.Login())
+            //        {
+            //            MainWindow mainWindow = new MainWindow();
+            //            lvm.TransferPersonToViewModel((MainViewModel)mainWindow.DataContext);
+            //            mainWindow.Show();
+            //            this.Close();
+            //        } else
+            //        {
+            //            this.txtMessage.Text = "Wrong password or username!";
+            //        }
+            //    }
+            //}
         }
     }
 }

@@ -8,7 +8,7 @@
         Title="MyPortfolio" Height="600" Width="1000"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="CanResizeWithGrip"
+        ResizeMode="CanResize"
         MouseDown="Window_MouseDown"
         Background="Transparent"
         AllowsTransparency="True"
@@ -146,6 +146,7 @@
                     <StackPanel Orientation="Vertical" Grid.Column="0">
                         <Image Source="/Views/Images/MyPortfolio-Icon-White.png" Width="150" Height="75" HorizontalAlignment="Center"/>
 
+                        
                         
                     </StackPanel>
                 </Border>

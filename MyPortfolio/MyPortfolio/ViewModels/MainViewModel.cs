@@ -18,7 +18,6 @@ namespace MyPortfolio.ViewModels
         public MainViewModel()
         {
             PersonRepository personRepository = new PersonRepository();
-
         }
 
         public void AttachPerson(Person person)
@@ -29,7 +28,7 @@ namespace MyPortfolio.ViewModels
 
         public void DetachPerson() 
         {
-            activePerson = null;            
+            activePerson = null;   
         }
     }
 }

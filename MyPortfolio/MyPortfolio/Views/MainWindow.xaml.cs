@@ -27,7 +27,6 @@ namespace MyPortfolio.Views
             InitializeComponent();
             mvm = new MainViewModel();
             this.DataContext = mvm;
-
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
