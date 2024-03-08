@@ -127,16 +127,27 @@
 
                 <Button x:Name="btn_Login_Microsoft"
                         BorderThickness="0"
-                        Content="Log in with Microsoft"
                         Foreground="White"
                         FontSize="12"
                         FontFamily="Montserrat"
                         Cursor="Hand"
                         Grid.Column="2"
                         Margin="0 250 0 0"
+                        FontWeight="Medium"
                         Click="btn_Login_Microsoft_Click"
                         Command="{Binding LoginCommand}"
-                        CommandParameter="{Binding}">
+                        CommandParameter="{Binding}"
+                        Width="200"
+                        Height="30">
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="200">
+                        <Image Source="/Views/Images/microsoft-logo.png" HorizontalAlignment="Left" Width="20" Height="20" Margin="10 0 0 0"/>
+                        <TextBlock Text="Log in with Microsoft" 
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"
+                                   Margin="20 0 0 0"/>
+                    </StackPanel>
 
                     <Button.Style>
                         <Style TargetType="Button">
@@ -151,14 +162,16 @@
 
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-                            <Border Width="200" Height="30" CornerRadius="15" Background="{TemplateBinding Background}">
+                            <Border Width="{TemplateBinding Width}" 
+                                    Height="{TemplateBinding Height}" 
+                                    CornerRadius="3.75"
+                                    Background="{TemplateBinding Background}">
+                                
                                 <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
 
-                    
-                    
                 </Button>
 
 

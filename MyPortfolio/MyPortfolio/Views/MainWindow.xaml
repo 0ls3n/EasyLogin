@@ -151,7 +151,8 @@
                             Foreground="White"
                             FontFamily="Montserrat"
                             FontWeight="Medium"
-                            FontSize="15"/>
+                            FontSize="15"
+                            TextAlignment="Center"/>
 
 
                     </StackPanel>
