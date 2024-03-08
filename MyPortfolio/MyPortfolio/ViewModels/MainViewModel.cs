@@ -13,7 +13,7 @@ namespace MyPortfolio.ViewModels
         private Person activePerson;
 
         string usernameText;
-        public string UsernameText { get => "Logged in as: " + usernameText; set { usernameText = activePerson.Username; } }
+        public string UsernameText { get => "Logged in as: " + usernameText; set { usernameText = (activePerson as MicrosoftUser).displayName; } }
 
         public MainViewModel()
         {
@@ -23,7 +23,10 @@ namespace MyPortfolio.ViewModels
         public void AttachPerson(Person person)
         {
             activePerson = person;
-            usernameText = activePerson.DisplayName;
+            if (activePerson is MicrosoftUser ms)
+            {
+                usernameText = ms.displayName;
+            }
         }
 
         public void DetachPerson() 

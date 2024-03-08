@@ -61,11 +61,11 @@ namespace MyPortfolio.Views
             AuthenticationResult authResult = null;
             var app = App.PublicClientApp;
 
-            IAccount firstAccount = (await app.GetAccountsAsync()).FirstOrDefault();
+            IAccount firstAccount = null; // (await app.GetAccountsAsync()).FirstOrDefault();
 
             if (firstAccount == null)
             {
-                firstAccount = PublicClientApplication.OperatingSystemAccount; // Hvis den ikke kan finde bruger i cache, prøver den at finde den gennem operativ systemets bruger
+                firstAccount = null;//PublicClientApplication.OperatingSystemAccount; // Hvis den ikke kan finde bruger i cache, prøver den at finde den gennem operativ systemets bruger
             }
 
             try
@@ -97,7 +97,12 @@ namespace MyPortfolio.Views
 
             if (authResult != null)
             {
-                MessageBox.Show($"Logged in as: {await GetProfile(graphAPIEndpoint, authResult.AccessToken)}");
+                //MessageBox.Show($"Logged in as: {await GetProfile(graphAPIEndpoint, authResult.AccessToken)}");
+                lvm.ReadUserFromJSON(await GetProfile(graphAPIEndpoint, authResult.AccessToken));
+                MainWindow mainWindow = new MainWindow();
+                lvm.TransferPersonToViewModel((MainViewModel)mainWindow.DataContext);
+                mainWindow.Show();
+                this.Close();
             }
         }
 

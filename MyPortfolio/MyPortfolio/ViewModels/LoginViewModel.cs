@@ -13,6 +13,7 @@ using System.Security.Policy;
 using Microsoft.Identity.Client;
 using System.Diagnostics;
 using System.Windows.Interop;
+using System.Text.Json;
 
 namespace MyPortfolio.ViewModels
 {
@@ -74,9 +75,29 @@ namespace MyPortfolio.ViewModels
         //    }
         //}
 
-        public void Login()
+        public void ReadUserFromJSON(string jsonFile)
         {
-            throw new NotImplementedException();
+            MicrosoftUser microsoftPerson = null;
+            try
+            {
+                microsoftPerson = JsonSerializer.Deserialize<MicrosoftUser>(jsonFile);
+            } catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            if (microsoftPerson != null)
+            {
+                if (personRepository.FindPerson(microsoftPerson.id) != null)
+                {
+                    //MessageBox.Show($"Id: {microsoftPerson.id}, DisplayName: {microsoftPerson.displayName}");
+                    personToLogin = microsoftPerson;
+                } else
+                {
+                    //MessageBox.Show($"Person with Id: {microsoftPerson.id} does not exist in the current register");
+                    personRepository.CreateNewMicrosoftPerson(microsoftPerson);
+                    personToLogin = microsoftPerson;
+                }
+            }
         }
 
         public void TransferPersonToViewModel(MainViewModel mvm)

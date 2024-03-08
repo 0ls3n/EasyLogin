@@ -72,9 +72,9 @@ namespace MyPortfolio.ViewModels
 
         public void RegisterNewPerson()
         {
-            foreach (Person person in personRepository.GetPersonList())
+            foreach (MicrosoftUser person in personRepository.GetPersonList())
             {
-                if (person.Username == UsernameText)
+                if (person.givenName == UsernameText)
                 {
                     //MessageBox.Show("User does already exist!");
                     return;
@@ -86,9 +86,9 @@ namespace MyPortfolio.ViewModels
                 return;
             }
 
-            Person personToCreate = new Person(UsernameText, PasswordText, EmailText, DisplayNameText);
+            //Person personToCreate = new Person(UsernameText, PasswordText, EmailText, DisplayNameText);
 
-            personRepository.CreateNewPerson(personToCreate);
+            //personRepository.CreateNewPerson(personToCreate);
 
             MessageBox.Show("Succesfully created a new person!!");
         }
@@ -97,9 +97,9 @@ namespace MyPortfolio.ViewModels
         {
             bool exist = false;
 
-            foreach (Person person in personRepository.GetPersonList())
+            foreach (MicrosoftUser person in personRepository.GetPersonList())
             {
-                if (person.Username == username)
+                if (person.givenName == username)
                 {
                     exist = true;
                     break;

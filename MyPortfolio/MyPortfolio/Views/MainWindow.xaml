@@ -146,8 +146,14 @@
                     <StackPanel Orientation="Vertical" Grid.Column="0">
                         <Image Source="/Views/Images/MyPortfolio-Icon-White.png" Width="150" Height="75" HorizontalAlignment="Center"/>
 
-                        
-                        
+                        <TextBlock
+                            Text="{Binding UsernameText}"
+                            Foreground="White"
+                            FontFamily="Montserrat"
+                            FontWeight="Medium"
+                            FontSize="15"/>
+
+
                     </StackPanel>
                 </Border>
 
