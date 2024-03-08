@@ -123,6 +123,77 @@
 
                 <Image Source="/Views/Images/MyPortfolio-icon.png" Width="250" Height="150"/>
 
+                <TextBlock Text="Username" 
+                           Foreground="DarkGray"
+                           FontSize="12"
+                           FontWeight="Medium"
+                           FontFamily="Montserrat"
+                           Margin="0, 10, 0, 0"/>
+
+                <TextBox x:Name="txtUser"
+                          FontSize="13"
+                          FontWeight="Medium"
+                          FontFamily="Montserrat"
+                          Foreground="White"
+                          Background="Transparent"
+                          CaretBrush="LightGray"
+                          BorderBrush="DarkGray"
+                          BorderThickness="0, 0, 0 2"
+                          Height="28"
+                          VerticalContentAlignment="Center"
+                          Margin="0, 5, 0, 0">
+
+                </TextBox>
+
+                <TextBlock Text="Password" 
+                            Foreground="DarkGray"
+                            FontSize="12"
+                            FontWeight="Medium"
+                            FontFamily="Montserrat"
+                            Margin="0, 35, 0, 0"/>
+
+                <components:BindablePasswordBox x:Name="txtPass"/>
+
+                <Button x:Name="btn_Login"
+                        BorderThickness="0"
+                        Content="LOG IN"
+                        Foreground="White"
+                        FontSize="12"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="2"
+                        Margin="0 35 0 0">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#415A77"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#778DA9"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="200" 
+                                    Height="30" 
+                                    CornerRadius="3.75"
+                                    Background="{TemplateBinding Background}">
+
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <TextBlock Text="OR"
+                           Foreground="White"
+                           TextAlignment="Center"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           Margin="0 30 0 0"/>
 
 
                 <Button x:Name="btn_Login_Microsoft"
@@ -132,7 +203,7 @@
                         FontFamily="Montserrat"
                         Cursor="Hand"
                         Grid.Column="2"
-                        Margin="0 250 0 0"
+                        Margin="0 30 0 0"
                         FontWeight="Medium"
                         Click="btn_Login_Microsoft_Click"
                         Command="{Binding LoginCommand}"
