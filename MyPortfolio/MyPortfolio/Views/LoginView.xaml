@@ -141,12 +141,25 @@
                         Height="30">
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="200">
-                        <Image Source="/Views/Images/microsoft-logo.png" HorizontalAlignment="Left" Width="20" Height="20" Margin="10 0 0 0"/>
+
+                        <Image Source="/Views/Images/microsoft-logo.png" 
+                               HorizontalAlignment="Left" 
+                               Width="15" 
+                               Height="15" 
+                               Margin="10 0 0 0"/>
+
+                        <Border BorderBrush="#FF334365" 
+                                BorderThickness="0 0 1 0" 
+                                Margin="15 0 0 0" 
+                                Opacity="0.5"
+                                Height="20"/>
+
                         <TextBlock Text="Log in with Microsoft" 
                                    VerticalAlignment="Center" 
                                    HorizontalAlignment="Center"
                                    TextAlignment="Center"
                                    Margin="20 0 0 0"/>
+
                     </StackPanel>
 
                     <Button.Style>
@@ -166,14 +179,12 @@
                                     Height="{TemplateBinding Height}" 
                                     CornerRadius="3.75"
                                     Background="{TemplateBinding Background}">
-                                
+
                                 <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
-
                 </Button>
-
 
 
             </StackPanel>
