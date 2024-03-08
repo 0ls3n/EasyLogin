@@ -18,7 +18,7 @@ namespace MyPortfolio.ViewModels
 {
     internal class LoginViewModel : INotifyPropertyChanged
     {
-        string graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
+        
 
         string[] scopes = new string[] { "user.read" };
 
@@ -74,48 +74,9 @@ namespace MyPortfolio.ViewModels
         //    }
         //}
 
-        public async void Login(Window window)
+        public void Login()
         {
-            AuthenticationResult authResult = null;
-            var app = App.PublicClientApp;
-
-            IAccount firstAccount = (await app.GetAccountsAsync()).FirstOrDefault();
-
-            if (firstAccount == null)
-            {
-                firstAccount = PublicClientApplication.OperatingSystemAccount; // Hvis den ikke kan finde bruger i cache, prøver den at finde den gennem operativ systemets bruger
-            }
-
-            try
-            {
-                authResult = await app.AcquireTokenSilent(scopes, firstAccount).ExecuteAsync(); // Prøver at logge ind gennem cache eller operativ systemets login
-            } 
-            catch (MsalUiRequiredException ex) // Hvis den ikke kunne logge ind gennem cache eller operativsystemet, kører den koden nedenfor
-            {
-                Debug.WriteLine(ex);
-
-                try
-                {
-                    authResult = await app.AcquireTokenInteractive(scopes)
-                        .WithAccount(firstAccount)
-                        .WithParentActivityOrWindow(new WindowInteropHelper(window).Handle)
-                        .WithPrompt(Prompt.SelectAccount)
-                        .ExecuteAsync();
-                } catch (MsalException msalex)
-                {
-                    Debug.WriteLine(msalex);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-                return;
-            }
-
-            if (authResult != null)
-            {
-                MessageBox.Show($"Logged in as: {authResult.Account.Username}");
-            }
+            throw new NotImplementedException();
         }
 
         public void TransferPersonToViewModel(MainViewModel mvm)

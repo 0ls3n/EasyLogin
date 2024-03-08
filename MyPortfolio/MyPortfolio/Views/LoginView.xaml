@@ -125,7 +125,7 @@
 
 
 
-                <Button x:Name="btn_Login"
+                <Button x:Name="btn_Login_Microsoft"
                         BorderThickness="0"
                         Content="Log in with Microsoft"
                         Foreground="White"
@@ -134,7 +134,7 @@
                         Cursor="Hand"
                         Grid.Column="2"
                         Margin="0 250 0 0"
-                        Click="btn_Login_Click"
+                        Click="btn_Login_Microsoft_Click"
                         Command="{Binding LoginCommand}"
                         CommandParameter="{Binding}">
 
