@@ -100,11 +100,6 @@ namespace MyPortfolio.ViewModels
             }
         }
 
-        public void TransferPersonToViewModel(MainViewModel mvm)
-        {
-            mvm.AttachPerson(personToLogin);
-        }
-
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));

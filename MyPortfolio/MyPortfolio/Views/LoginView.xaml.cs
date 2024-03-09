@@ -53,7 +53,7 @@ namespace MyPortfolio.Views
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            App.ShutAppDown();
         }
 
         private async void btn_Login_Microsoft_Click(object sender, RoutedEventArgs e)
@@ -97,10 +97,9 @@ namespace MyPortfolio.Views
 
             if (authResult != null)
             {
-                //MessageBox.Show($"Logged in as: {await GetProfile(graphAPIEndpoint, authResult.AccessToken)}");
+                // To revieve the id from an IAccount -> string id = authResult.Account.HomeAccountId.ObjectId.Substring(19).Remove(4, 1).ToString();
                 lvm.ReadUserFromJSON(await GetProfile(graphAPIEndpoint, authResult.AccessToken));
                 MainWindow mainWindow = new MainWindow();
-                lvm.TransferPersonToViewModel((MainViewModel)mainWindow.DataContext);
                 mainWindow.Show();
                 this.Close();
             }
@@ -123,6 +122,12 @@ namespace MyPortfolio.Views
                 return Ex.ToString();
             }
         }
+
+        private void SignOutButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
 
         private void btn_Forgot_Passsword_Click(object sender, RoutedEventArgs e)
         {

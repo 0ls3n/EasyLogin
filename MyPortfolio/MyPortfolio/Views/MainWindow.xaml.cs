@@ -31,7 +31,7 @@ namespace MyPortfolio.Views
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            App.ShutAppDown();
         }
 
         private void btn_Minimize_Click(object sender, RoutedEventArgs e)

@@ -50,6 +50,30 @@ namespace MyPortfolio
             cacheHelper.RegisterCache(_clientApp.UserTokenCache);
         }
 
+        public static void ShutAppDown()
+        {
+            SignUserOut();
+            Application.Current.Shutdown();
+        }
+
+        private async static void SignUserOut()
+        {
+            var accounts = await PublicClientApp.GetAccountsAsync();
+            if (accounts.Any())
+            {
+                try
+                {
+                    await PublicClientApp.RemoveAsync(accounts.FirstOrDefault());
+                }
+                catch (MsalException ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+        }
+
+        
+
         private static async Task<MsalCacheHelper> CreateCacheHelperAsync()
         {
             // Since this is a WPF application, only Windows storage is configured
