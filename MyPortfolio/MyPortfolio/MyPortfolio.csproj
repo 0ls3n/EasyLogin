@@ -17,11 +17,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Views\Images\log-out-logo.png" />
     <None Remove="Views\Images\microsoft-logo.png" />
     <None Remove="Views\Images\myportfolio-favicon-color.ico" />
     <None Remove="Views\Images\MyPortfolio-Icon-White.png" />
     <None Remove="Views\Images\MyPortfolio-icon.png" />
     <None Remove="Views\Images\password-logo.png" />
+    <None Remove="Views\Images\portfolio-icon.png" />
     <None Remove="Views\Images\user-logo.png" />
   </ItemGroup>
 
@@ -39,6 +41,9 @@
     <Resource Include="Views\Images\myportfolio-favicon-color.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Views\Images\log-out-logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Views\Images\microsoft-logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -49,6 +54,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Images\password-logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\portfolio-icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Images\user-logo.png">

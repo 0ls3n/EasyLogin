@@ -123,12 +123,6 @@ namespace MyPortfolio.Views
             }
         }
 
-        private void SignOutButton_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-
         private void btn_Forgot_Passsword_Click(object sender, RoutedEventArgs e)
         {
 
@@ -159,6 +153,11 @@ namespace MyPortfolio.Views
             //        }
             //    }
             //}
+        }
+
+        private void btn_Standard_Login_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

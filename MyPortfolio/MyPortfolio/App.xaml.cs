@@ -56,7 +56,7 @@ namespace MyPortfolio
             Application.Current.Shutdown();
         }
 
-        private async static void SignUserOut()
+        public async static void SignUserOut()
         {
             var accounts = await PublicClientApp.GetAccountsAsync();
             if (accounts.Any())

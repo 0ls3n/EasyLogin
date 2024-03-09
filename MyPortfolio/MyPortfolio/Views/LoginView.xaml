@@ -141,7 +141,8 @@
                           BorderThickness="0, 0, 0 2"
                           Height="28"
                           VerticalContentAlignment="Center"
-                          Margin="0, 5, 0, 0">
+                          Margin="0, 5, 0, 0"
+                          Text="{Binding Path=UsernameText, UpdateSourceTrigger=PropertyChanged}">
 
                 </TextBox>
 
@@ -152,17 +153,19 @@
                             FontFamily="Montserrat"
                             Margin="0, 35, 0, 0"/>
 
-                <components:BindablePasswordBox x:Name="txtPass"/>
+                <components:BindablePasswordBox x:Name="txtPass"
+                                                Password="{Binding Path=PasswordText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <Button x:Name="btn_Login"
+                <Button x:Name="btn_Standard_Login"
                         BorderThickness="0"
-                        Content="LOG IN"
+                        Content="Log in"
                         Foreground="White"
                         FontSize="12"
                         FontFamily="Montserrat"
                         Cursor="Hand"
                         Grid.Column="2"
-                        Margin="0 35 0 0">
+                        Margin="0 35 0 0"
+                        Click="btn_Standard_Login_Click">
 
                     <Button.Style>
                         <Style TargetType="Button">

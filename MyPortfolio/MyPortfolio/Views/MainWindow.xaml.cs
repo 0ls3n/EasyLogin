@@ -54,6 +54,13 @@ namespace MyPortfolio.Views
             else if (WindowState == WindowState.Maximized)
                 WindowState = WindowState.Normal;
         }
-        
+
+        private void btn_SignOut_Click(object sender, RoutedEventArgs e)
+        {
+            App.SignUserOut();
+            LoginView loginView = new LoginView();
+            loginView.Show();
+            this.Close();
+        }
     }
 }

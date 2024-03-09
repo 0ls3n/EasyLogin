@@ -28,11 +28,16 @@
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Grid Margin="250 0 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="250 0 0 0" Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="25"/>
@@ -135,33 +140,173 @@
 
             </Grid>
 
-            <Grid Grid.Row="1">
+            <Grid Grid.RowSpan="2">
+                <Border Background="#0D1B2A" CornerRadius="15 0 0 15">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                        <Image Source="/Views/Images/MyPortfolio-icon-White.png" Width="175" Margin="0 15 0 0" HorizontalAlignment="Center"/>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                        <Button x:Name="btn_Open_Profile"
+                                BorderThickness="0"
+                                Foreground="White"
+                                FontSize="12"
+                                FontFamily="Montserrat"
+                                Cursor="Hand"
+                                Margin="0 50 0 0"
+                                FontWeight="Medium"
+                                Height="40">
 
-                <Border Margin="0 -30 0 0" CornerRadius="15 0 0 15" Background="#0D1B2A">
-                    <StackPanel Orientation="Vertical" Grid.Column="0">
-                        <Image Source="/Views/Images/MyPortfolio-Icon-White.png" Width="150" Height="75" HorizontalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="200">
 
-                        <TextBlock
-                            Text="{Binding UsernameText}"
-                            Foreground="White"
-                            FontFamily="Montserrat"
-                            FontWeight="Medium"
-                            FontSize="15"
-                            TextAlignment="Center"/>
+                                <Image Source="/Views/Images/user-logo.png" 
+                                       HorizontalAlignment="Left" 
+                                       Width="25" 
+                                       Height="25" 
+                                       Margin="10 0 0 0"/>
 
+
+                                <TextBlock Text="My Profile" 
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"
+                                           Margin="20 0 0 0"
+                                           FontSize="13"/>
+
+                            </StackPanel>
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FF112235"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="{TemplateBinding Width}" 
+                                            Height="{TemplateBinding Height}" 
+                                            Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <Button x:Name="btn_Open_Portfolios"
+                                BorderThickness="0"
+                                Foreground="White"
+                                FontSize="12"
+                                FontFamily="Montserrat"
+                                Cursor="Hand"
+                                Margin="0 20 0 0"
+                                FontWeight="Medium"
+                                Height="40">
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="200">
+
+                                <Image Source="/Views/Images/portfolio-icon.png" 
+                                       HorizontalAlignment="Left" 
+                                       Width="25" 
+                                       Height="25" 
+                                       Margin="10 0 0 0"/>
+
+
+                                <TextBlock Text="Portfolios" 
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"
+                                           Margin="20 0 0 0"
+                                           FontSize="13"/>
+
+                            </StackPanel>
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FF112235"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="{TemplateBinding Width}" 
+                                            Height="{TemplateBinding Height}" 
+                                            Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <TextBlock Text="{Binding Path=UsernameText}"
+                                   Foreground="White">
+                            
+                        </TextBlock>
+
+                        <Button x:Name="btn_SignOut"
+                                BorderThickness="0"
+                                Foreground="White"
+                                FontSize="12"
+                                FontFamily="Montserrat"
+                                Cursor="Hand"
+                                Margin="0 330 0 0"
+                                FontWeight="Medium"
+                                Height="40"
+                                Click="btn_SignOut_Click">
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="200">
+
+                                <Image Source="/Views/Images/log-out-logo.png" 
+                                       Width="20" 
+                                       HorizontalAlignment="Left" 
+                                       Height="20" 
+                                       Margin="10 0 0 0"/>
+
+
+                                <TextBlock Text="Sign out" 
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"
+                                           Margin="20 0 0 0"
+                                           FontSize="13"/>
+
+                            </StackPanel>
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FF112235"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="{TemplateBinding Width}" 
+                                            Height="{TemplateBinding Height}" 
+                                            Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
 
                     </StackPanel>
                 </Border>
+            </Grid>
 
-
-
-
-
+            <Grid Grid.Row="1" Grid.Column="1">
+                
             </Grid>
 
         </Grid>
