@@ -1,9 +1,15 @@
 ﻿<Application x:Class="MyPortfolio.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:MyPortfolio"
+             xmlns:local="clr-namespace:MyPortfolio" xmlns:Views="clr-namespace:MyPortfolio.Views"
              StartupUri="Views/LoginView.xaml">
     <Application.Resources>
-         
+
+
+
+        
+        
     </Application.Resources>
+    
+    
 </Application>

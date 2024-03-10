@@ -245,11 +245,6 @@
                             </Button.Template>
                         </Button>
 
-                        <TextBlock Text="{Binding Path=UsernameText}"
-                                   Foreground="White">
-                            
-                        </TextBlock>
-
                         <Button x:Name="btn_SignOut"
                                 BorderThickness="0"
                                 Foreground="White"
@@ -307,7 +302,7 @@
 
             <Grid Grid.Row="1" Grid.Column="1">
 
-                <ContentControl/>
+                <ContentControl Content="{Binding ContentControl}"/>
 
             </Grid>
 
