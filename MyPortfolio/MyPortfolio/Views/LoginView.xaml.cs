@@ -1,21 +1,9 @@
 ﻿using Microsoft.Identity.Client;
 using MyPortfolio.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
 namespace MyPortfolio.Views
 {
     /// <summary>
@@ -152,7 +140,7 @@ namespace MyPortfolio.Views
 
         private void btn_Standard_Login_Click(object sender, RoutedEventArgs e)
         {
-
+            lvm.LoginPortfolioUser();
         }
 
         private void btn_Register_New_Account_Click(object sender, RoutedEventArgs e)

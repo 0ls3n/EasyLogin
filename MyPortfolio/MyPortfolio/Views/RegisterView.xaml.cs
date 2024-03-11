@@ -45,8 +45,17 @@ namespace MyPortfolio.Views
 
         private void btn_Register_Click(object sender, RoutedEventArgs e)
         {
-            // Implement the register click
+            rvm.RegisterUser();
+            LoginView loginView = new LoginView();
+            loginView.Show();
+            this.Close();
+        }
 
+        private void btn_Already_Have_Account_Click(object sender, RoutedEventArgs e)
+        {
+            LoginView loginView = new LoginView();
+            loginView.Show();
+            this.Close();
         }
     }
 }

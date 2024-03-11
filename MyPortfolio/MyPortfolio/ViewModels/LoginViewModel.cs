@@ -13,6 +13,7 @@ using Microsoft.Identity.Client;
 using System.Diagnostics;
 using System.Windows.Interop;
 using System.Text.Json;
+using BCrypt.Net;
 
 namespace MyPortfolio.ViewModels
 {
@@ -76,6 +77,24 @@ namespace MyPortfolio.ViewModels
                     personRepository.CreateNewMicrosoftPerson(microsoftPerson);
                     personToLogin = microsoftPerson;
                 }
+            }
+        }
+
+        public void LoginPortfolioUser()
+        {
+            try
+            {
+                if (BCrypt.Net.BCrypt.Verify(PasswordText, personRepository.FindPortfolioUser(UsernameText).Password, false, HashType.SHA512))
+                {
+                    MessageBox.Show("Logged in!");
+                }
+                else
+                {
+                    MessageBox.Show("Username or password is incorrect");
+                }
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 

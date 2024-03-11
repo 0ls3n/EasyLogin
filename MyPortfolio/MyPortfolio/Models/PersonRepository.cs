@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
 using Microsoft.Extensions.Configuration;
+using System.Windows.Forms;
 
 namespace MyPortfolio.Models
 {
@@ -43,11 +44,14 @@ namespace MyPortfolio.Models
             {
                 con.Open();
 
+                string salt = BCrypt.Net.BCrypt.GenerateSalt();
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(person.Password, salt, false, BCrypt.Net.HashType.SHA512);
+
                 SqlCommand cmd = new SqlCommand("INSERT INTO PERSON(Mail, DisplayName, Username, Password) VALUES(@Mail, @DisplayName, @Username, @Password)", con);
                 cmd.Parameters.Add("@Mail", SqlDbType.NVarChar).Value = person.Mail;
                 cmd.Parameters.Add("@DisplayName", SqlDbType.NVarChar).Value = person.DisplayName;
                 cmd.Parameters.Add("@Username", SqlDbType.NVarChar).Value = person.Username;
-                cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = person.Password;
+                cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = hashedPassword;
 
                 person.PortfolioId = Convert.ToInt32(cmd.ExecuteScalar());
 

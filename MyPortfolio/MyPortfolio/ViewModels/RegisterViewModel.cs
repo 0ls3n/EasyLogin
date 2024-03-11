@@ -57,9 +57,16 @@ namespace MyPortfolio.ViewModels
             }
         }
 
+        PersonRepository personRepository;
+
         public RegisterViewModel()
         {
-            PersonRepository personRepository = new PersonRepository();
+            personRepository = new PersonRepository();
+        }
+
+        public void RegisterUser()
+        {
+            personRepository.CreateNewPortfolioPerson(new PortfolioPerson(DisplayName, Email, Username, Password));
         }
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)

@@ -236,6 +236,40 @@
                     </Button.Template>
                 </Button>
 
+                <Button x:Name="btn_Already_Have_Account"
+                        Background="Transparent"
+                        Content="Don't have an account?"
+                        Foreground="White"
+                        FontFamily="Montserrat"
+                        BorderThickness="0"
+                        Margin="0 7 0 0"
+                        Cursor="Hand"
+                        Width="140"
+                        Click="btn_Already_Have_Account_Click">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="FontWeight" Value="Normal"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="FontWeight" Value="Medium"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="{TemplateBinding Width}" 
+                                    Height="{TemplateBinding Height}" 
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+
             </StackPanel>
 
         </Grid>
