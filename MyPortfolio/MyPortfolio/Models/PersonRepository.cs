@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using System.Data;
-using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.Configuration;
 
 namespace MyPortfolio.Models
@@ -114,6 +108,20 @@ namespace MyPortfolio.Models
             }
         }
 
+        public void DeletePortfolioPerson(PortfolioPerson person)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("DELETE FROM PERSON WHERE Username = @Username", con);
+                cmd.Parameters.Add("@Username", SqlDbType.Int).Value = person.Username;
+                int rows = cmd.ExecuteNonQuery();
+
+                personList.Remove(person);
+            }
+        }
+
         public MicrosoftUser FindMicrosoftUser(string id)
         {
             MicrosoftUser personToReturn = null;
@@ -148,6 +156,6 @@ namespace MyPortfolio.Models
             return personToReturn;
         }
 
-        public List<Person> GetMicrosoftPersonList() => personList;
+        public List<Person> GetPersonList() => personList;
     }
 }

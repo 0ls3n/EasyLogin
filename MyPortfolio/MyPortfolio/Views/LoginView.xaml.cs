@@ -154,5 +154,12 @@ namespace MyPortfolio.Views
         {
 
         }
+
+        private void btn_Register_New_Account_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterView registerView = new RegisterView();
+            registerView.Show();
+            this.Close();
+        }
     }
 }
