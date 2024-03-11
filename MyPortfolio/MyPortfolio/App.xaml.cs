@@ -72,8 +72,6 @@ namespace MyPortfolio
             }
         }
 
-        
-
         private static async Task<MsalCacheHelper> CreateCacheHelperAsync()
         {
             // Since this is a WPF application, only Windows storage is configured

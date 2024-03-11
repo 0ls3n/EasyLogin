@@ -128,12 +128,7 @@ namespace MyPortfolio.Views
 
         }
 
-        private void btn_Register_Click(object sender, RoutedEventArgs e)
-        {
-            RegisterView registerView = new RegisterView();
-            registerView.Show();
-            this.Close();
-        }
+        
 
         private void txtPass_KeyDown(object sender, KeyEventArgs e)
         {

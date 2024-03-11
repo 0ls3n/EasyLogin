@@ -57,7 +57,7 @@ namespace MyPortfolio.ViewModels
                 {
                     string accountId = accounts.FirstOrDefault().HomeAccountId.ObjectId.Substring(19).Remove(4, 1);
 
-                    Person personToLogin = personRepository.FindPerson(accountId);
+                    Person personToLogin = personRepository.FindMicrosoftUser(accountId);
 
                     if (personToLogin != null)
                     {

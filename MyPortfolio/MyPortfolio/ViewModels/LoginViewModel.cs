@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using MyPortfolio.Models;
-using MyPortfolio.Commands;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Security.Policy;
@@ -19,10 +18,6 @@ namespace MyPortfolio.ViewModels
 {
     internal class LoginViewModel : INotifyPropertyChanged
     {
-        
-
-        string[] scopes = new string[] { "user.read" };
-
         public event PropertyChangedEventHandler? PropertyChanged;
 
         MainViewModel mvm;
@@ -59,22 +54,6 @@ namespace MyPortfolio.ViewModels
             personRepository = new PersonRepository();
         }
 
-        public ICommand LoginCommand { get; set; } = new LoginButtonCommand();
-
-        //public bool Login()
-        //{
-        //    personToLogin = personRepository.FindPerson(UsernameText);
-
-        //    if (personToLogin != null && personToLogin.Password == PasswordText)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
-
         public void ReadUserFromJSON(string jsonFile)
         {
             MicrosoftUser microsoftPerson = null;
@@ -83,11 +62,11 @@ namespace MyPortfolio.ViewModels
                 microsoftPerson = JsonSerializer.Deserialize<MicrosoftUser>(jsonFile);
             } catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                Console.WriteLine(ex);
             }
             if (microsoftPerson != null)
             {
-                if (personRepository.FindPerson(microsoftPerson.id) != null)
+                if (personRepository.FindMicrosoftUser(microsoftPerson.id) != null)
                 {
                     //MessageBox.Show($"Id: {microsoftPerson.id}, DisplayName: {microsoftPerson.displayName}");
                     personToLogin = microsoftPerson;
