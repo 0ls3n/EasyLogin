@@ -2,6 +2,7 @@
 using System.Data;
 using Microsoft.Extensions.Configuration;
 using System.Windows.Forms;
+using BCrypt.Net;
 
 namespace MyPortfolio.Models
 {
@@ -43,7 +44,6 @@ namespace MyPortfolio.Models
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 con.Open();
-
                 string salt = BCrypt.Net.BCrypt.GenerateSalt();
                 string hashedPassword = BCrypt.Net.BCrypt.HashPassword(person.Password, salt, false, BCrypt.Net.HashType.SHA512);
 

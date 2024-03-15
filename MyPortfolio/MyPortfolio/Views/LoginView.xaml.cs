@@ -140,7 +140,14 @@ namespace MyPortfolio.Views
 
         private void btn_Standard_Login_Click(object sender, RoutedEventArgs e)
         {
-            lvm.LoginPortfolioUser();
+            if(lvm.LoginPortfolioUser())
+            {
+                MainWindow mainWindow = new MainWindow();
+                MainViewModel mvm = mainWindow.DataContext as MainViewModel;
+                lvm.SendPersonToViewmodel(mvm);
+                mainWindow.Show();
+                this.Close();
+            }
         }
 
         private void btn_Register_New_Account_Click(object sender, RoutedEventArgs e)

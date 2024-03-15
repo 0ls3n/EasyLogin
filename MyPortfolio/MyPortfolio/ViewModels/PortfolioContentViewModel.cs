@@ -31,7 +31,13 @@ namespace MyPortfolio.ViewModels
 
         public void ActivePersonDisplayName(Person activePerson)
         {
-            LabelText = (activePerson as MicrosoftUser).displayName;
+            if (activePerson is MicrosoftUser mu)
+            {
+                LabelText = mu.displayName;
+            } else if (activePerson is PortfolioPerson pu)
+            {
+                LabelText = pu.DisplayName;
+            }
         }
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)

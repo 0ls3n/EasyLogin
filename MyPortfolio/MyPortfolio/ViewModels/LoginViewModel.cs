@@ -14,6 +14,7 @@ using System.Diagnostics;
 using System.Windows.Interop;
 using System.Text.Json;
 using BCrypt.Net;
+using MyPortfolio.Views;
 
 namespace MyPortfolio.ViewModels
 {
@@ -80,23 +81,37 @@ namespace MyPortfolio.ViewModels
             }
         }
 
-        public void LoginPortfolioUser()
+        public bool LoginPortfolioUser()
         {
+            bool success = false;
             try
             {
-                if (BCrypt.Net.BCrypt.Verify(PasswordText, personRepository.FindPortfolioUser(UsernameText).Password, false, HashType.SHA512))
+                if (personRepository.FindPortfolioUser(UsernameText) != null 
+                    && BCrypt.Net.BCrypt.Verify(PasswordText, personRepository.FindPortfolioUser(UsernameText).Password, false, HashType.SHA512))
                 {
-                    MessageBox.Show("Logged in!");
+                    personToLogin = personRepository.FindPortfolioUser(UsernameText);
+                    success = true;
                 }
                 else
                 {
                     MessageBox.Show("Username or password is incorrect");
+                    success = false;
                 }
             } catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
+
+            return success;
         }
+
+        public void SendPersonToViewmodel(MainViewModel mvm)
+        {
+            this.mvm = mvm;
+            mvm.RetrievePerson(personToLogin);
+        }
+
+        
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {

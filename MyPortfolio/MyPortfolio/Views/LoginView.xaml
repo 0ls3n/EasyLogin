@@ -14,7 +14,6 @@
         AllowsTransparency="True"
         ShowInTaskbar="True"
         Icon="Images/myportfolio-favicon-color.ico">
-
     <Border CornerRadius="15" BorderThickness="2">
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -220,7 +219,7 @@
                                HorizontalAlignment="Left" 
                                Width="15" 
                                Height="15" 
-                               Margin="10 0 0 0"/>
+                               Margin="14 0 0 0"/>
 
                         <Border BorderBrush="#FF4E4E4E" 
                                 BorderThickness="0 0 1 0" 
@@ -232,7 +231,8 @@
                                    VerticalAlignment="Center" 
                                    HorizontalAlignment="Center"
                                    TextAlignment="Center"
-                                   Margin="20 0 0 0"/>
+                                   Margin="16 0 0 0"
+                                   FontFamily="Montserrat"/>
 
                     </StackPanel>
 

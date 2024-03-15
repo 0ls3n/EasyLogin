@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Windows;
 using Microsoft.Identity.Client;
 using Microsoft.Identity.Client.Extensions.Msal;
+using MyPortfolio.Models;
 
 namespace MyPortfolio
 {
