@@ -147,7 +147,7 @@ namespace MyPortfolio.Views
                 lvm.SendPersonToViewmodel(mvm);
                 mainWindow.Show();
                 this.Close();
-            }
+            } 
         }
 
         private void btn_Register_New_Account_Click(object sender, RoutedEventArgs e)

@@ -122,6 +122,13 @@
 
                 <Image Source="/Views/Images/MyPortfolio-icon.png" Width="250" Height="150"/>
 
+                <TextBlock x:Name="txt_Error_Message"
+                           Text="{Binding Path=ErrorMessage, UpdateSourceTrigger=PropertyChanged}"
+                           Foreground="Red"
+                           FontFamily="Montserrat"
+                           FontSize="12"
+                           FontWeight="Medium"/>
+
                 <TextBlock Text="Username" 
                            Foreground="DarkGray"
                            FontSize="12"
@@ -266,7 +273,7 @@
                         Foreground="White"
                         FontFamily="Montserrat"
                         BorderThickness="0"
-                        Margin="0 13 0 0"
+                        Margin="0 7 0 0"
                         Cursor="Hand"
                         Width="140"
                         Click="btn_Register_New_Account_Click">

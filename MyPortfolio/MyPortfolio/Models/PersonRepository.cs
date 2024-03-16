@@ -160,6 +160,8 @@ namespace MyPortfolio.Models
             return personToReturn;
         }
 
+        public Person FindPerson(int id) => personList.Find(x => x.PortfolioId == id);
+
         public List<Person> GetPersonList() => personList;
     }
 }

@@ -24,20 +24,26 @@ namespace MyPortfolio.ViewModels
 
         public PortfolioContentViewModel()
         {
-            
+
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public void ActivePersonDisplayName(Person activePerson)
+        public void ActivePersonDisplayName(Person person)
         {
-            if (activePerson is MicrosoftUser mu)
+            if (person is MicrosoftUser mu)
             {
                 LabelText = mu.displayName;
-            } else if (activePerson is PortfolioPerson pu)
+            } else if (person is PortfolioPerson pu)
             {
                 LabelText = pu.DisplayName;
             }
+        }
+
+        public void AddNewPortfolio(Person person,  PersonRepository personRepository)
+        {
+            PortfolioRepository portfolioRepository = new PortfolioRepository(personRepository);
+            portfolioRepository.CreateNewPortfolio("Lorem Ipsum Dolor Sit Amet", person);
         }
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)

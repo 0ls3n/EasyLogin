@@ -47,6 +47,17 @@ namespace MyPortfolio.ViewModels
             }
         }
 
+        string errorMessage;
+        public string ErrorMessage
+        {
+            get => errorMessage;
+            set
+            {
+                errorMessage = value;
+                OnPropertyChanged("ErrorMessage");
+            }
+        }
+
         private PersonRepository personRepository;
 
         Person personToLogin;
@@ -54,6 +65,7 @@ namespace MyPortfolio.ViewModels
         public LoginViewModel() 
         {
             personRepository = new PersonRepository();
+            errorMessage = string.Empty;
         }
 
         public void ReadUserFromJSON(string jsonFile)
@@ -94,7 +106,7 @@ namespace MyPortfolio.ViewModels
                 }
                 else
                 {
-                    MessageBox.Show("Username or password is incorrect");
+                    ErrorMessage = "Wrong username or password";
                     success = false;
                 }
             } catch (Exception ex)

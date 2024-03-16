@@ -11,7 +11,9 @@ namespace MyPortfolio.Models
         public string Title { get; set; }
         public Person Person { get; set; }
 
-        private List<Subject> SubjectList;
+        public int Id { get; set; }
+
+        private List<Subject> SubjectList; 
         
         public Portfolio(string title, Person person)
         {

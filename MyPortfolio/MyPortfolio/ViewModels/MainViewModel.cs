@@ -35,6 +35,7 @@ namespace MyPortfolio.ViewModels
         LoginViewModel LoginViewModel; 
 
         PersonRepository personRepository;
+        PortfolioRepository PortfolioRepository;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -46,8 +47,9 @@ namespace MyPortfolio.ViewModels
             PortfolioContentVM = (PortfolioContentViewModel)PortfolioContentView.DataContext;
             ContentControl = PortfolioContentView;
             GetPersonLoggedIn();
+            PortfolioRepository = new PortfolioRepository(personRepository);
+            
 
-            //PortfolioContentVM.ActivePersonDisplayName(activePerson);
         }
 
         private async void GetPersonLoggedIn()
@@ -66,6 +68,7 @@ namespace MyPortfolio.ViewModels
                         activePerson = personToLogin;
                         //UsernameText = (activePerson as MicrosoftUser).displayName;
                         PortfolioContentVM.ActivePersonDisplayName(activePerson);
+                        //PortfolioContentVM.AddNewPortfolio(activePerson, personRepository);
                         return;
                     }
 
@@ -85,6 +88,7 @@ namespace MyPortfolio.ViewModels
         {
             activePerson = personToRetrieve;
             PortfolioContentVM.ActivePersonDisplayName(activePerson);
+            //PortfolioContentVM.AddNewPortfolio(activePerson, personRepository);
         }
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)
