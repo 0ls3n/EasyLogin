@@ -8,6 +8,3 @@ Welcome to MyPortfolio! MyPortfolio is a platform designed for individuals to sh
 
 ## Register
 <img width="600" alt="MyPortfolio Register" src="https://github.com/0ls3n/MyPortfolio/assets/31800865/38cb4683-d305-4992-b7f2-bf147726dbb3">
-
-## Main Window
-<img width="750" alt="MyPortfolio MainWindow" src="https://github.com/0ls3n/MyPortfolio/assets/31800865/4b1e478f-669e-4738-b92d-6f0d284c3727">
