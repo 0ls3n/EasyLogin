@@ -14,25 +14,20 @@ namespace MyPortfolio.ViewModels
     internal class MainViewModel : INotifyPropertyChanged
     {
         private Person activePerson;
-
-        string usernameText;
-        public string UsernameText { get => "Logged in as: " + usernameText; set { usernameText = value; } }
+        public PersonViewModel personVM;
 
         private object contentControl;
-        public object ContentControl 
-        { 
+        public object ContentControl
+        {
             get { return contentControl; }
-            set 
-            { 
+            set
+            {
                 contentControl = value;
                 OnPropertyChanged("ContentControl");
             }
         }
 
-        PortfolioContent PortfolioContentView { get; set; }
-        PortfolioContentViewModel PortfolioContentVM { get; set; }
-
-        LoginViewModel LoginViewModel; 
+        PortfolioContentViewModel PortfolioContentVM;
 
         PersonRepository personRepository;
         PortfolioRepository PortfolioRepository;
@@ -42,14 +37,18 @@ namespace MyPortfolio.ViewModels
         public MainViewModel()
         {
             personRepository = new PersonRepository();
-            
-            PortfolioContentView = new PortfolioContent();
-            PortfolioContentVM = (PortfolioContentViewModel)PortfolioContentView.DataContext;
-            ContentControl = PortfolioContentView;
+            personVM = new PersonViewModel(activePerson);
             GetPersonLoggedIn();
-            PortfolioRepository = new PortfolioRepository(personRepository);
+
+            PortfolioContentVM = new PortfolioContentViewModel(this);
+            
+           
             
 
+            PortfolioRepository = new PortfolioRepository(personRepository);
+            
+            ContentControl = PortfolioContentVM;
+            
         }
 
         private async void GetPersonLoggedIn()
@@ -67,7 +66,7 @@ namespace MyPortfolio.ViewModels
                     {
                         activePerson = personToLogin;
                         //UsernameText = (activePerson as MicrosoftUser).displayName;
-                        PortfolioContentVM.ActivePersonDisplayName(activePerson);
+                        //PortfolioContentVM.ActivePersonDisplayName(activePerson);
                         //PortfolioContentVM.AddNewPortfolio(activePerson, personRepository);
                         return;
                     }
@@ -78,16 +77,13 @@ namespace MyPortfolio.ViewModels
                 {
                     Console.WriteLine(ex);
                 }
-            } else
-            {
-                
             }
         }
 
         public void RetrievePerson(Person personToRetrieve)
         {
             activePerson = personToRetrieve;
-            PortfolioContentVM.ActivePersonDisplayName(activePerson);
+            //PortfolioContentVM.ActivePersonDisplayName(activePerson);
             //PortfolioContentVM.AddNewPortfolio(activePerson, personRepository);
         }
 

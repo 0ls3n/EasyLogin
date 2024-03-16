@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyPortfolio.Views"
+        xmlns:local="clr-namespace:MyPortfolio.Views" xmlns:viewmodels="clr-namespace:MyPortfolio.ViewModels"
         mc:Ignorable="d"
         Title="MyPortfolio" Height="600" Width="1000"
         WindowStyle="None"
@@ -302,7 +302,7 @@
 
             <Grid Grid.Row="1" Grid.Column="1">
 
-                <ContentControl Content="{Binding ContentControl}"/>
+                <ContentControl Content="{Binding ContentControl, UpdateSourceTrigger=PropertyChanged}"/>
 
             </Grid>
 

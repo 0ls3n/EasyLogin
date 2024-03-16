@@ -2,13 +2,17 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MyPortfolio" xmlns:Views="clr-namespace:MyPortfolio.Views"
+             xmlns:viewmodels="clr-namespace:MyPortfolio.ViewModels"
+             xmlns:views="clr-namespace:MyPortfolio.Views"
              StartupUri="Views/LoginView.xaml">
     <Application.Resources>
 
+        <DataTemplate DataType="{x:Type viewmodels:PortfolioContentViewModel}">
+            <views:PortfolioContent/>
+        </DataTemplate>
 
 
-        
-        
+
     </Application.Resources>
     
     

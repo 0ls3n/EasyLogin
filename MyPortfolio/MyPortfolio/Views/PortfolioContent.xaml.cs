@@ -1,5 +1,4 @@
-﻿using MyPortfolio.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,11 +20,8 @@ namespace MyPortfolio.Views
     /// </summary>
     public partial class PortfolioContent : UserControl
     {
-        PortfolioContentViewModel pcvm;
         public PortfolioContent()
         {
-            pcvm = new PortfolioContentViewModel();
-            this.DataContext = pcvm;
             InitializeComponent();
         }
     }
