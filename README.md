@@ -1,6 +1,6 @@
-# WPF Login and Register App
+# EasyLogin
 
-Welcome to the WPF Login and Register App! This small project is a Windows Presentation Foundation (WPF) application written in C# .NET. It provides basic functionalities for user authentication, including a login window and a registration window.
+This is a small project made in Windows Presentation Foundation (WPF). It provides basic functionalities for user authentication, including a login window and a registration window.
 
 ## Features
 
