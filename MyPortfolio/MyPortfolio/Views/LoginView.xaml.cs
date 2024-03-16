@@ -87,9 +87,7 @@ namespace MyPortfolio.Views
             {
                 // To revieve the id from an IAccount -> string id = authResult.Account.HomeAccountId.ObjectId.Substring(19).Remove(4, 1).ToString();
                 lvm.ReadUserFromJSON(await GetProfile(graphAPIEndpoint, authResult.AccessToken));
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+                MessageBox.Show($"Logged in successfully as {authResult.Account.Username}!");
             }
         }
 
@@ -142,11 +140,7 @@ namespace MyPortfolio.Views
         {
             if(lvm.LoginPortfolioUser())
             {
-                MainWindow mainWindow = new MainWindow();
-                MainViewModel mvm = mainWindow.DataContext as MainViewModel;
-                lvm.SendPersonToViewmodel(mvm);
-                mainWindow.Show();
-                this.Close();
+                MessageBox.Show("Logged in successfully!");
             } 
         }
 

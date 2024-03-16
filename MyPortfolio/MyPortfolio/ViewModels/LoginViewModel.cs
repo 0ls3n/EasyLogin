@@ -22,8 +22,6 @@ namespace MyPortfolio.ViewModels
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        MainViewModel mvm;
-
         string usernameText = string.Empty;
         public string UsernameText 
         { 
@@ -115,12 +113,6 @@ namespace MyPortfolio.ViewModels
             }
 
             return success;
-        }
-
-        public void SendPersonToViewmodel(MainViewModel mvm)
-        {
-            this.mvm = mvm;
-            mvm.RetrievePerson(personToLogin);
         }
 
         

@@ -7,10 +7,6 @@
              StartupUri="Views/LoginView.xaml">
     <Application.Resources>
 
-        <DataTemplate DataType="{x:Type viewmodels:PortfolioContentViewModel}">
-            <views:PortfolioContent/>
-        </DataTemplate>
-
 
 
     </Application.Resources>
