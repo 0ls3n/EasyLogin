@@ -1,10 +1,25 @@
-# MyPortfolio (Under Development)
+# WPF Login and Register App
 
-Welcome to MyPortfolio! MyPortfolio is a platform designed for individuals to showcase their work, projects, and achievements in one centralized location. Whether you're a freelancer, a student, an entrepreneur, or a professional, MyPortfolio provides you with the tools to present your portfolio in a professional and organized manner.
+Welcome to the WPF Login and Register App! This small project is a Windows Presentation Foundation (WPF) application written in C# .NET. It provides basic functionalities for user authentication, including a login window and a registration window.
 
-## Login
-<img width="600" alt="MyPortfolio Login" src="https://github.com/0ls3n/MyPortfolio/assets/31800865/24e06060-9303-4d1d-b4bc-1523e4841ef4">
+## Features
 
+- User-friendly interface with separate windows for login and registration.
+- Password encryption using BCrypt algorithm with SHA-512 hashing.
+- Option to register a new account securely.
+- Ability to login with a Microsoft account using the Microsoft Identity Client.
 
-## Register
-<img width="600" alt="MyPortfolio Register" src="https://github.com/0ls3n/MyPortfolio/assets/31800865/38cb4683-d305-4992-b7f2-bf147726dbb3">
+## Security
+
+- Passwords are encrypted using BCrypt algorithm with a salt for enhanced security.
+- Hashing type used for password encryption: SHA-512.
+
+## Licence
+This project is licensed under the [GPL-3.0 licence](LICENSE).
+
+## Screenshots
+### Login
+<img width="600" alt="MyPortfolio Login" src="https://github.com/0ls3n/MyPortfolio/assets/31800865/27106aa9-72c4-41d5-a001-7bf058b6e798">
+
+### Register
+<img width="600" alt="MyPortfolio Register" src="https://github.com/0ls3n/MyPortfolio/assets/31800865/d1da2abb-59fc-4d67-8c51-7ee3e70fcae2">
