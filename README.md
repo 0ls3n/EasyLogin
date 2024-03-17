@@ -13,6 +13,7 @@ This is a small project made in Windows Presentation Foundation (WPF). It provid
 
 - Passwords are encrypted using BCrypt algorithm with a salt for enhanced security.
 - Hashing type used for password encryption: SHA-512.
+- To prevent SQL injection attacks, all database queries are parameterized. This means that user input is never directly interpolated into SQL queries, reducing the risk of malicious SQL injection.
 
 ## Licence
 This project is licensed under the [GPL-3.0 licence](LICENSE).
